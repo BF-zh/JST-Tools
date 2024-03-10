@@ -144,6 +144,7 @@ declare global {
   const unsafeWindow: typeof import('vite-plugin-monkey/dist/client')['unsafeWindow']
   const until: typeof import('@vueuse/core')['until']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
+  const useAniMeta: typeof import('@vueuse/core')['useAniMeta']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
