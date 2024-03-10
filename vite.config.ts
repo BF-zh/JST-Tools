@@ -6,7 +6,8 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
-import injectMeta from './vite-inject-Meta'
+
+// import injectMeta from './vite-inject-Meta'
 
 export default defineConfig(({ mode, command }) => {
   const isBuildClient = mode === 'client' || command === 'serve'

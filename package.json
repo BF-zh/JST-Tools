@@ -9,10 +9,7 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "lint": "eslint .",
-    "commit": "cz",
-    "release-major": "standard-version --release-as major",
-    "release-minor": "standard-version --release-as minor",
-    "release-patch": "standard-version --release-as patch"
+    "cz": "czg"
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
@@ -23,8 +20,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.8.0",
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
     "@types/node": "^20.11.24",
     "@unocss/eslint-plugin": "^0.58.5",
     "@vitejs/plugin-legacy": "^5.3.1",
@@ -35,9 +30,7 @@
     "eslint-ts-patch": "8.57.0-0",
     "fast-glob": "^3.3.2",
     "glob": "^10.3.10",
-    "husky": "^9.0.11",
     "sass": "^1.71.1",
-    "standard-version": "^9.5.0",
     "typescript": "^5.3.3",
     "unocss": "^0.58.5",
     "unplugin-auto-import": "^0.17.5",
