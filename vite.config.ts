@@ -7,7 +7,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import legacy from '@vitejs/plugin-legacy'
 
-// import injectMeta from './vite-inject-Meta'
+import { injectMeta } from './vite/plugin'
 
 export default defineConfig(({ mode, command }) => {
   const isBuildClient = mode === 'client' || command === 'serve'
@@ -21,7 +21,7 @@ export default defineConfig(({ mode, command }) => {
       namespace: 'npm/vite-plugin-monkey',
       copyright: '北风-JST',
       version: '0.0.2',
-      match: ['*://*.bilibili.com/*'],
+      match: ['*://*.bilibili.com/*', '*://*.erp321.com/*'],
     },
     build: {
       externalGlobals: {
@@ -42,11 +42,10 @@ export default defineConfig(({ mode, command }) => {
           defineModel: true,
         },
       }),
-      // injectMeta(),
       // https://github.com/antfu/unplugin-vue-components
       Components({
         // allow auto load markdown components under `./src/components/`
-        dirs: ['src/components'],
+        dirs: ['src/components', 'src/ui'],
         directoryAsNamespace: true,
         extensions: ['vue', 'md'],
         deep: true,
@@ -73,31 +72,32 @@ export default defineConfig(({ mode, command }) => {
         ],
         vueTemplate: true,
       }),
-      legacy({
-        targets: ['defaults', 'ie >= 11', 'chrome >= 52'], // 需要兼容的目标列表，可以设置多个
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-        renderLegacyChunks: false,
-        polyfills: [
-          'es.symbol',
-          'es.array.filter',
-          'es.promise',
-          'es.promise.finally',
-          'es/map',
-          'es/set',
-          'es.array.for-each',
-          'es.array.to-stored',
-          'es.object.define-properties',
-          'es.object.define-property',
-          'es.object.get-own-property-descriptor',
-          'es.object.get-own-property-descriptors',
-          'es.object.keys',
-          'es.object.to-string',
-          'web.dom-collections.for-each',
-          'esnext.global-this',
-          'esnext.string.match-all',
-          'MutationObserver',
-        ],
-      }),
+      injectMeta(),
+      // legacy({
+      //   targets: ['defaults', 'ie >= 11', 'chrome >= 52'], // 需要兼容的目标列表，可以设置多个
+      //   additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
+      //   renderLegacyChunks: true,
+      //   polyfills: [
+      //     'es.symbol',
+      //     'es.array.filter',
+      //     'es.promise',
+      //     'es.promise.finally',
+      //     'es/map',
+      //     'es/set',
+      //     'es.array.for-each',
+      //     'es.array.to-stored',
+      //     'es.object.define-properties',
+      //     'es.object.define-property',
+      //     'es.object.get-own-property-descriptor',
+      //     'es.object.get-own-property-descriptors',
+      //     'es.object.keys',
+      //     'es.object.to-string',
+      //     'web.dom-collections.for-each',
+      //     'esnext.global-this',
+      //     'esnext.string.match-all',
+      //     'MutationObserver',
+      //   ],
+      // }),
       isBuildClient ? monkeyPlugin : undefined,
     ],
     resolve: {

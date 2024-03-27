@@ -1,0 +1,21 @@
+body[direction='ltr'] {
+  --direction: 1;
+
+  .bf-setting {
+    .sidebar {
+      left: 0
+    }
+  }
+}
+
+
+
+body[direction='rtl'] {
+  --direction: -1;
+
+  .bf-setting {
+    .sidebar {
+      right: 8px;
+    }
+  }
+}

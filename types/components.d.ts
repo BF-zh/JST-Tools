@@ -7,6 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    SettingsPanel: typeof import('./../src/components/settings-panel/index.md')['default']
+    SettingsPanelComponentTag: typeof import('./../src/components/settings-panel/ComponentTag.vue')['default']
     SettingsPanelSettingsContainer: typeof import('./../src/components/settings-panel/SettingsContainer.vue')['default']
+    SettingsPanelSettingsPanel: typeof import('./../src/components/settings-panel/SettingsPanel.vue')['default']
+    SettingsPanelWidgetPanel: typeof import('./../src/components/settings-panel/WidgetPanel.vue')['default']
+    TPopup: typeof import('./../src/ui/TPopup.vue')['default']
   }
 }
